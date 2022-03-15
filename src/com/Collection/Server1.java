@@ -1,6 +1,6 @@
 package com.Collection;
 
-public class Server {
+public class Server1 {
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -9,7 +9,7 @@ public class Server {
 	private int zipNo;
 	private long phoneNo;
 	private String email;
-	public Server(String firstName, String lastName, String address, String city, String state, int zipNo, long phoneNo,
+	public Server1(String firstName, String lastName, String address, String city, String state, int zipNo, long phoneNo,
 			String email) {
 		super();
 		this.firstName = firstName;

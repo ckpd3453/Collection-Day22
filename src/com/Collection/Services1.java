@@ -3,24 +3,45 @@ package com.Collection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Services {
-	ArrayList<Server> contacts = new ArrayList<Server>(); //ArrayList
+public class Services1 {
+	String name;
+	ArrayList<Server1> contacts = new ArrayList<Server1>(); // ArrayList
 	Scanner s = new Scanner(System.in);
 
 	public void numberOfTimes() {
 		System.out.println("Enter the number of contacts to add");
 		int number = s.nextInt();
-		for (int i = 1; i <= number; i++) {
-
-			addPerson();
+		for (int i = 0; i <= number; i++) {
+			System.out.println("Enter the contact details of person ");
+            duplicateCheck();
 		}
 	}
+	
+	public void duplicateCheck() {  
+		System.out.print(" Please enter the first name: ");
+		name = s.next();
+		for(Server1 i : contacts) {
+		   if(i.getFirstName().equals(name)) {
+			   System.out.println(" Given name already exists");
+		   } return;
+        }  addPerson();
+	}
+	
+	/*
+	 * public void addContact() { //taking input from console to add user
+	 * System.out.println("Enter the number of contacts you want to enter"); int
+	 * number = s.nextInt(); for (int i = 0; i < number; i++) {
+	 * System.out.println("Enter the contact details of person "); duplicateCheck();
+	 * } }
+	 */
 
-	public void addPerson() {			//To add contact
+	public void addPerson() { // To add contact
+		MultipleAddressBook1 mult = new MultipleAddressBook1();
 
-		System.out.println("Enter the first name: ");
-		String firstName = s.next();
 		
+		String firstName = name;
+		 
+
 		System.out.println("Enter the last name: ");
 		String lastName = s.next();
 
@@ -42,23 +63,22 @@ public class Services {
 		System.out.println("Enter the email: ");
 		String email = s.next();
 
-		Server newContact = new Server(firstName, lastName, address, city, state, zipNo, phoneNo, email);
+		Server1 newContact = new Server1(firstName, lastName, address, city, state, zipNo, phoneNo, email);
 		contacts.add(newContact);
-
 	}
 
-	public void display() { 			//To display contact
+	public void display() { // To display contact
 
 		System.out.println(contacts);
 	}
 
-	public Server findContact() { // to find the contacts
+	public Server1 findContact() { // to find the contacts
 		System.out.println("\n Enter the first name of the contact to edit: ");
 		String name = s.next();
 		int duplicate = 0; // will increment the duplicate if found multiple contacts with same name
-		Server temp = null;
+		Server1 temp = null;
 
-		for (Server contact : contacts) {
+		for (Server1 contact : contacts) {
 
 			if (contact.getFirstName().equals(name)) {
 
@@ -69,10 +89,10 @@ public class Services {
 		if (duplicate == 1) {
 			return temp;
 
-		} else if (duplicate > 1) {						//conditions to check multiple contact by the same name
+		} else if (duplicate > 1) { // conditions to check multiple contact by the same name
 			System.out.print(" There are multiple contacts with given name.\n Please enter their email id: ");
 			String email = s.next();
-			for (Server contact : contacts) {
+			for (Server1 contact : contacts) {
 				if (contact.getFirstName().equals(name) && contact.getCity().equals(email)) {
 					return contact;
 				}
@@ -84,8 +104,8 @@ public class Services {
 		return temp;
 	}
 
-	public void edit() {					//To edit contact
-		Server contact = findContact();
+	public void edit() { // To edit contact
+		Server1 contact = findContact();
 		System.out.println(
 				"1: To edit first name \n 2: To edit lastName \n 3: To edit address \n 4: To edit city \n 5: To edit state \n 6: To edit zip code \n 7: To edit Phone no. \n 8: To edit email ");
 		int choice = s.nextInt();
@@ -143,8 +163,8 @@ public class Services {
 		System.out.println("Contacts Updated: " + contact);
 	}
 
-	public void delete() {							//to delete contact
-		Server contact = findContact();
+	public void delete() { // to delete contact
+		Server1 contact = findContact();
 		contacts.remove(contact);
 		System.out.println("Updated Phone Book: \n" + contacts);
 	}

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.Collection.*;
 
-public class AddressBook {
+public class AddressBook1 {
 	/*
 	 * Procedure:-
 	 * ===========
@@ -12,12 +12,12 @@ public class AddressBook {
 	public static void main(String[] args) {
 		System.out.println("----------Phone Book-----------");
 		Scanner sc = new Scanner(System.in);
-		Services add = new Services();				//created objects
-		MultipleAddressBook mult = new MultipleAddressBook();
+		Services1 add = new Services1();				//created objects
+		MultipleAddressBook1 mult = new MultipleAddressBook1();
 		while (true) {					
 			System.out.println("Enter to avail services: ");
 			System.out.println("1: To add contact \n 2: To edit existing contact \n 3: To delete contact \n 4: To display contact list \n 5: To Exit");
-			System.out.println(" 6: To Add AddressBook \n 7: To add Contacts in AddressBook");
+			System.out.println(" 6: To Add AddressBook \n 7: To add Contacts in AddressBook \n 8:To display AddressBook");
 			int choices = sc.nextInt();
 
 			switch (choices) {
